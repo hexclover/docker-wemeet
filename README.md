@@ -34,6 +34,19 @@ Or alternatively, you can set `${P}` directly using the command
 P=$(pactl info | grep 'Server String' | cut -d ':' -f2 | xargs)
 ```
 
+### Webcam
+
+You can get a list of attached webcams using the `v4l2-ctl` tool:
+
+```console
+$ v4l2-ctl --list-devices
+Integrated Camera: ...
+        /dev/video0
+        ...
+```
+
+For each device you want to use, pass an argument looking like `--device=<DEVICE_FILE_PATH>` when starting the container.
+
 ### Starting the container
 
 First, create a data directory for Tencent Meeting to use:
@@ -42,17 +55,16 @@ First, create a data directory for Tencent Meeting to use:
 mkdir ~/wemeet
 ```
 
-Then start the container with:
+Then start the container with the command below:
 
 ```bash
-docker run --rm -e PULSE_SERVER=unix:/tmp/pulse -v ${P}:/tmp/pulse -ti -v ~/wemeet:/wemeet -p 127.0.0.1:6008:6008 docker-wemeet
+docker run --rm -e PULSE_SERVER=unix:/tmp/pulse ${YOUR_WEBCAM_DEVICE} -v ${P}:/tmp/pulse -ti -v ~/wemeet:/wemeet -p 127.0.0.1:6008:6008 docker-wemeet
 ```
 
 Now you can access http://127.0.0.1:6008 with your browser.
 
 ## What's missing
 
-- Webcam
 - Input method
 
 ## Troubleshooting

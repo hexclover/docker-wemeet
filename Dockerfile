@@ -24,14 +24,15 @@ RUN curl -o "$DEBFILE" "$DEBURL" && \
 
 RUN apt-get install -y tigervnc-standalone-server novnc websockify && \
     ln -s /usr/share/novnc/vnc.html /usr/share/novnc/index.html
-RUN apt-get install -y openbox xinit xterm python3-xdg alsa-utils --no-install-recommends
+RUN apt-get install -y openbox xinit xterm python3-xdg alsa-utils libv4l-0 sudo --no-install-recommends
 
 COPY start.sh /
 RUN chmod +x start.sh
 
-RUN useradd -m wemeet && \
+RUN useradd -mG audio,video wemeet && \
     mkdir /wemeet && \
-    chown wemeet:wemeet /wemeet
+    chown wemeet:wemeet /wemeet && \
+    echo "wemeet ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER wemeet
 RUN mkdir -p ~/.config/autostart && \
     cp /usr/share/applications/wemeetapp.desktop ~/.config/autostart && \
