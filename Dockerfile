@@ -24,7 +24,7 @@ RUN curl -o "$DEBFILE" "$DEBURL" && \
 
 RUN apt-get install -y tigervnc-standalone-server novnc websockify && \
     ln -s /usr/share/novnc/vnc.html /usr/share/novnc/index.html
-RUN apt-get install -y openbox xinit xterm python3-xdg alsa-utils libv4l-0 sudo --no-install-recommends
+RUN apt-get install -y openbox xinit xterm python3-xdg libv4l-0 simplescreenrecorder sudo --no-install-recommends
 
 COPY start.sh /
 RUN chmod +x start.sh

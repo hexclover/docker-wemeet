@@ -63,6 +63,10 @@ docker run --rm -e PULSE_SERVER=unix:/tmp/pulse ${YOUR_WEBCAM_DEVICE} -v ${P}:/t
 
 Now you can access http://127.0.0.1:6008 with your browser.
 
+## Environment variables
+
+- `RESOLUTION`: The screen resolution of the X server. Defaults to `1280x800`.
+
 ## What's missing
 
 - Input method
