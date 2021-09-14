@@ -1,9 +1,9 @@
 FROM ubuntu:focal
 MAINTAINER 0xCLOVER
 
-ARG DEBURL="https://updatecdn.meeting.qq.com/ad878a99-76c4-4058-ae83-22ee948cce98/TencentMeeting_0300000000_2.8.0.0_x86_64.publish.deb"
+ARG DEBURL="https://updatecdn.meeting.qq.com/cos/196cdf1a3336d5dca56142398818545f/TencentMeeting_0300000000_2.8.0.1_x86_64.publish.deb"
 ARG DEBFILE="/tm.deb"
-ARG SHA256SUM="a6b3506b02870196694f138354ccce6faa81e38a19a24e3a3b3426c8b24efcbf"
+ARG SHA256SUM="2d63cf2c367b6158b137ec5af85a89a3974cf915bf01933d9f0db3f5d8a02317"
 ARG REPO="http://mirrors.tuna.tsinghua.edu.cn"
 ARG TIMEZONE="Asia/Shanghai"
 
