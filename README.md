@@ -67,9 +67,9 @@ Now you can access http://127.0.0.1:6008 with your browser.
 
 - `RESOLUTION`: The screen resolution of the X server. Defaults to `1280x800`.
 
-## What's missing
+## TODO
 
-- Input method
+- [x] Input method
 
 ## Troubleshooting
 
